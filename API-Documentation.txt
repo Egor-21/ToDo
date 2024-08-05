@@ -1,0 +1,117 @@
+Регистрация пользователя
+- URL: /register/
+- Метод: POST
+- Описание: Регистрация нового пользователя.
+- Тело запроса:
+ 
+  {
+    "username": "string",
+    "email": "string",
+    "password": "string"
+  }
+  
+- Ответ:
+  - Успешный ответ (201 Created):
+   
+    {
+      "id": 1,
+      "username": "string",
+      "email": "string"
+    }
+
+####
+Получение токена
+- URL: /token/
+- Метод: POST
+- Описание: Получение JWT токена для аутентификации.
+- Тело запроса:
+ 
+  {
+    "username": "string",
+    "password": "string"
+  }
+  
+- Ответ:
+  - Успешный ответ (200 OK):
+   
+    {
+      "access": "string",
+      "refresh": "string"
+    }
+
+####   
+Добавление новой задачи
+- URL: /tasks/
+- Метод: POST
+- Описание: Создание новой задачи.
+- Тело запроса:
+ 
+  {
+    "title": "string",
+    "description": "string"
+  }
+  
+- Ответ:
+  - Успешный ответ (201 Created):
+   
+    {
+      "id": 1,
+      "title": "string",
+      "description": "string",
+      "created_at": "string",
+      "last_updated_at": "string",
+      "creator": {
+        "id": 1,
+        "username": "string"
+      }
+    }
+
+####    
+Предоставление доступа на редактирование задачи
+- URL: /permissions/
+- Метод: POST
+- Описание: Назначение разрешений на редактирование задачи.
+- Тело запроса:
+ 
+  {
+    "task": 1,
+    "user": 2,
+    "permission": "update"
+  }
+  
+- Ответ:
+  - Успешный ответ (201 Created):
+   
+    {
+      "id": 1,
+      "task": 1,
+      "user": 2,
+      "permission": "update"
+    }
+
+
+####    
+Редактирование задачи
+- URL: /tasks/<int:pk>/
+- Метод: PATCH
+- Описание: Изменение информации о задаче.
+- Тело запроса:
+ 
+  {
+    "description": "string"
+  }
+  
+- Ответ:
+  - Успешный ответ (200 OK):
+   
+    {
+      "id": 1,
+      "title": "string",
+      "description": "string",
+      "created_at": "string",
+      "last_updated_at": "string",
+      "creator": {
+        "id": 1,
+        "username": "string"
+      }
+    }
